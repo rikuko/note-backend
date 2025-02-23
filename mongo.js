@@ -11,32 +11,29 @@ const url =
     `mongodb+srv://rikuikoskinen:${password}@cluster0.81st1.mongodb.net/noteApp?retryWrites=true&w=majority&appName=Cluster0`
 
 mongoose.set('strictQuery', false)
-mongoose.connect(url)
-
-const noteSchema = new mongoose.Schema({
-    content: String,
-    important: Boolean,
-})
-
-const Note = mongoose.model('Note', noteSchema)
-
-const note = new Note({
-    content: 'HTML is easy',
-    important: true,
-    content: 'CSS is hard',
-    important: false,
-    content: 'Mongoose makes thing easy',
-    important: false,
-})
-
-note.save().then(result => {
-    console.log('note saved!')
-    mongoose.connection.close()
-})
-
-/* Note.find({}).then(result => {
-    result.forEach(note => {
-        console.log(note)
+mongoose.connect(url).then(() => {
+    const noteSchema = new mongoose.Schema({
+        content: String,
+        important: Boolean,
     })
-    mongoose.connection.close()
-}) */
+
+    const Note = mongoose.model('Note', noteSchema)
+
+    const note = new Note({
+        content: 'HTML is x',
+        important: true,
+    })
+
+    /*
+    note.save().then(result => {
+      console.log('note saved!')
+      mongoose.connection.close()
+    })
+    */
+    Note.find({}).then(result => {
+        result.forEach(note => {
+            console.log(note)
+        })
+        mongoose.connection.close()
+    })
+})
