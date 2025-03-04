@@ -1,8 +1,10 @@
-const express = require('express')
-const app = express()
 require('dotenv').config()
-
+const express = require('express')
 const Note = require('./models/note')
+
+const app = express()
+
+
 
 let notes = [
 ]
