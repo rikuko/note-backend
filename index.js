@@ -1,11 +1,8 @@
-require('dotenv').config()
 const express = require('express')
-const Note = require('./models/note')
-
 const app = express()
-app.use(express.static('dist'))
+require('dotenv').config()
 
-
+const Note = require('./models/note')
 
 let notes = [
 ]
@@ -77,5 +74,3 @@ const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
-
-
