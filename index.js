@@ -4,8 +4,8 @@ require('dotenv').config()
 
 const Note = require('./models/note')
 
-let notes = [
-]
+/* let notes = [
+] */
 
 const requestLogger = (request, response, next) => {
     console.log('Method:', request.method)
@@ -35,15 +35,15 @@ const unknownEndpoint = (request, response) => {
     response.status(404).send({ error: 'unknown endpoint' })
 }
 
-app.get('/', (request, response) => {
-    response.send('<h1>Hello World!</h1>')
-})
-
 app.get('/api/notes', (request, response) => {
     Note.find({})
         .then((notes) => {
             response.json(notes)
         })
+})
+
+app.get('/', (request, response) => {
+    response.send('<h1>Hello World!</h1>')
 })
 
 app.get('/api/notes/:id', (request, response, next) => {
