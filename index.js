@@ -1,12 +1,10 @@
-const express = require('express')
-const app = express()
 require('dotenv').config()
-
+const express = require('express')
 const Note = require('./models/note')
 
-/* let notes = [
-]
- */
+const app = express()
+
+
 const requestLogger = (request, response, next) => {
     console.log('Method:', request.method)
     console.log('Path:  ', request.path)
@@ -41,8 +39,8 @@ app.get('/', (request, response) => {
 
 app.get('/api/notes', (request, response) => {
     Note.find({})
-        .then((note) => {
-            response.json(note)
+        .then((notes) => {
+            response.json(notes)
         })
 })
 
@@ -102,6 +100,7 @@ app.delete('/api/notes/:id', (request, response, next) => {
 })
 
 app.use(unknownEndpoint)
+app.use(errorHandler)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
