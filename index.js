@@ -35,14 +35,15 @@ const unknownEndpoint = (request, response) => {
     response.status(404).send({ error: 'unknown endpoint' })
 }
 
-app.get('/', (request, response) => {
+app.get('/hello', (request, response) => {
     response.send('<h1>Hello World!</h1>')
 })
 
 app.get('/api/notes', (request, response) => {
-    Note.find({}).then((notes) => {
-        response.json(notes)
-    })
+    Note.find({})
+        .then((notes) => {
+            response.json(notes)
+        })
 })
 
 app.get('/api/notes/:id', (request, response, next) => {
