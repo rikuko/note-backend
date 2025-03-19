@@ -12,6 +12,7 @@ const requestLogger = (request, response, next) => {
     console.log('---')
     next()
 }
+
 const errorHandler = (error, request, response, next) => {
     console.error(error.message)
 
