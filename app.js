@@ -7,6 +7,7 @@ const notesRouter = require('./controllers/notes')
 const usersRouter = require('./controllers/users')
 const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
+const loginRouter = require('./controllers/login')
 /* const cors = require('cors') */
 
 
@@ -30,6 +31,7 @@ app.use(middleware.requestLogger)
 //Controllers
 app.use('/api/notes', notesRouter)
 app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
 
 // Middleware
 app.use(middleware.unknownEndpoint)
