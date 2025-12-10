@@ -34,4 +34,3 @@ usersRouter.get('/', async (request, response) => {
 
 module.exports = usersRouter
 
-
