@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build:ui": "rm -rf dist && cd ../sand-box/part5 && npm run build && cp -r dist ../../note-backend",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
+    "start:test": "cross-env NODE_ENV=test node --watch index.js"
   },
   "author": "Riku Koskinen",
   "license": "MIT",

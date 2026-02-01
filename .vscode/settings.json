@@ -21,6 +21,7 @@
     "peacock.color": "#dd0531",
     "eslint.format.enable": true,
     "cSpell.words": [
-        "tcaer"
+        "tcaer",
+        "Testausmoodi"
     ]
 }
